@@ -2,7 +2,7 @@
 #include <iostream>
 #include "interface.h"
 #include "anagramdetector.h"
-
+#include "wordfixup.h"
 void Interface()
 {
 	bool validinput = false;
@@ -14,11 +14,11 @@ void Interface()
 	{
 		userword.erase(userword.begin(), userword.end());//Make sure we are clean
 		tempword.erase(tempword.begin(), tempword.end());
-		std::cin>>tempword;
+		std::getline(std::cin,tempword);
 		for(int i = 0; i<tempword.length(); i++)//cleanup input
 		{
-			if(!isalpha(tempword[i]))
-				tempword.erase(i);
+			if(!isalpha(tempword[i])|| tempword[i] == ' ')
+				tempword = WordFixUp(tempword,i);
 			std::transform(tempword.begin(), tempword.end(), tempword.begin(), ::tolower); //common one liner I found online
 			if(!tempword.empty())
 				validinput = true;
@@ -26,7 +26,7 @@ void Interface()
 	}
 	userword = tempword;
 	#ifdef DEBUG_
-	std::cout<<"Word is: "<<userword<<std::endl;
+	std::cout<<"Word is: "<<userword<<"*"<<std::endl;
 	#endif
 	AnagramCheck(userword);
 }

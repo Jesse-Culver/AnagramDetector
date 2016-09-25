@@ -22,7 +22,7 @@ void AnagramCheck(std::string userString)
 	for(int i = 0; i<wordVectorSorted.size(); i++)
 	{
 		std::sort(wordVectorSorted[i].begin(), wordVectorSorted[i].end());
-		if(wordVectorSorted[i] == sortedUserString)
+		if(wordVectorSorted[i].compare(sortedUserString)== 0)
 			std::cout<<wordVector[i]<<std::endl;
 	}
 }
