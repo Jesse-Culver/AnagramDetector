@@ -1,4 +1,4 @@
 all:
-	g++ main.cpp interface.cpp interface.h -o AnagramDetector.exe
+	g++ -std=c++11 main.cpp interface.cpp anagramdetector.cpp interface.h anagramdetector.h -o AnagramDetector.exe
 debug:
-	g++ main.cpp interface.cpp interface.h -D DEBUG_ -o AnagramDetector_DEBUG.exe
+	g++ -std=c++11main.cpp interface.cpp anagramdetector.cpp interface.h anagramdetector.h -D DEBUG_ -o AnagramDetector_DEBUG.exe

@@ -1,6 +1,8 @@
 #include <algorithm>
 #include <iostream>
 #include "interface.h"
+#include "anagramdetector.h"
+
 void Interface()
 {
 	bool validinput = false;
@@ -26,6 +28,6 @@ void Interface()
 	#ifdef DEBUG_
 	std::cout<<"Word is: "<<userword<<std::endl;
 	#endif
-
+	AnagramCheck(userword);
 }
 
